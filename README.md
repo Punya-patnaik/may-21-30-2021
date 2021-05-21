@@ -22,8 +22,8 @@
 <br/><br/>
 
 * Introduction to Microservices
-* Spring Cloud Cloud Eureka
-* Spring cloud config
+* Spring Cloud Eureka
+* Spring Cloud config
 * Spring Cloud Load balancer
 * Spring Cloud Circuit Breaker
 * Spring Cloud Feign
