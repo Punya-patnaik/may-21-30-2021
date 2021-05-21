@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
 	//http://localhost:8080/hello -> TGIF
-	
+		
 	@GetMapping("/hello")
 	public String greet() {
 		return "TGIF";
