@@ -46,7 +46,7 @@ class Account {
 //	ejb-jar.xml
 //  Bundle all these into a jar file and then drop them inside the container
 
-``` java
+```
 
 * Spring framework provided a lightweight container
 * POJO framework
@@ -54,6 +54,7 @@ class Account {
 * It manages the lifecycle of all the beans in the application
 * __Dependency Injection__ is the basic principle of Spring framework
 * Simple mechanism by which you avoid writing unnecessary creation and lookup code
+
 
 #### Need to bootstrap Spring
 
