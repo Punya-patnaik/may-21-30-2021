@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+//Controllers are singleton by default and meant to be stateless
 @RestController
+//@Scope("prototype")
 public class HelloController {
 
 	//http://localhost:8080/hello -> TGIF
