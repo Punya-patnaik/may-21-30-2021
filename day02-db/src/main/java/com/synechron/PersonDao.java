@@ -18,7 +18,7 @@ public interface PersonDao extends CrudRepository<Person, Integer> {
 	
 	//JPA QL : Query classes and fields
 	@Query("select p from Person p where p.age > :p1")
-	List<Person> findPersonsWithAgeGt(int age);
+	List<Person> findPersonsWithAgeGt(@Param("p1") int age);
 	
 	@Modifying
 	@Query("update Person p set p.age = :age where p.id = :id ")
