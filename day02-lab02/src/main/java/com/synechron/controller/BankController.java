@@ -1,5 +1,7 @@
 package com.synechron.controller;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,15 @@ import com.synechron.service.AccountService;
 public class BankController {
 	@Autowired
 	private AccountService accountService;
+	
+	
+	@PostConstruct
+	public void printDetails() {
+		System.out.println("*********************************");
+		System.out.println(accountService.getClass().getName());
+		System.out.println(accountService.getClass().getSuperclass().getName());
+		System.out.println("*********************************");
+	}
 
 	@PostMapping("/deposit")
 	public String deposit(@RequestParam("accountnumber") int accountNumber, @RequestParam int amount, @RequestParam String type) {
