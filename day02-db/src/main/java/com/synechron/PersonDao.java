@@ -13,6 +13,9 @@ public interface PersonDao extends CrudRepository<Person, Integer> {
 	//methods are named on the combinations of the fields 
 	//methods vary based on the arguments 
 	
+	@Query("select p from Person p where p.cars.size >= 2")
+	List<Person> getPersonsWithAtleast2Cars();
+	
 	@Query(value = "select * from persons where age > :p1", nativeQuery = true)
 	List<Person> findAllWithAgeGt(@Param("p1") int age);
 	

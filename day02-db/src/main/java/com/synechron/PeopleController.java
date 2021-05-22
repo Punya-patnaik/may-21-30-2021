@@ -1,6 +1,7 @@
 package com.synechron;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +21,34 @@ public class PeopleController {
 	
 	@Autowired
 	private PersonDao personDao;
+	
+	
+	
+	@PostMapping("/{name}/{age}/{model1}/{model2}")  // NOT the BEST WAY
+	public String createPersonWithCars(@PathVariable String name, 
+			@PathVariable int age, 
+			@PathVariable String model1, 
+			@PathVariable String model2) {
+		Person person = new Person();
+		person.setName(name);
+		person.setAge(age);
+		
+		Car car1 = new Car();
+		car1.setModel(model1);
+		car1.setOwner(person);
+		
+		Car car2 = new Car();
+		car2.setModel(model2);
+		car2.setOwner(person);
+		
+		person.setCars(Arrays.asList(car1, car2));
+		
+		personDao.save(person);
+		return "person with 2 cars created";
+	}
+	
+	
+	
 	
 	// DO NOT have verbs in url
 	// /create/{name}/{age}
