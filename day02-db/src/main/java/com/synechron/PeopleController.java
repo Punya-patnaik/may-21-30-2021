@@ -24,6 +24,17 @@ public class PeopleController {
 	// /create/{name}/{age}
 	// /load/id/{id}
 	
+	
+	@GetMapping("name/{name}/age/{age}")
+	public Person getPersonsByNameAndAge(@PathVariable String name, @PathVariable int age) {
+		return personDao.findByNameAndAge(name, age);
+	}
+	
+	@GetMapping("/all/name/{name}/age/{age}")
+	public List<Person> getAllPersonsByNameAndAge(@PathVariable String name, @PathVariable int age) {
+		return personDao.findAllByNameAndAge(name, age);
+	}
+	
 	@GetMapping
 	public List<Person> getAllPersons() {
 		List<Person> persons = new ArrayList<>();
