@@ -72,7 +72,48 @@ class Account {
 * Create methods inside this class that return beans
 * Mark the methods using __@Bean__ annotation
 
+### Transactional
 
+* Generates proxy classes that extend the target class
+
+``` java
+
+class AccountService {
+	@Transactional
+	withdraw()
+	
+	@Transactional
+	deposit()
+}
+
+class Proxy extends AccountService {
+	private AccountService original;
+	
+	withdraw() {
+		txnManager.beginTranscation();
+		try {
+			original.withdraw();
+			txnManager.commit();
+		}
+		catch(ex) {
+			txnManager.rollback();
+		}
+	}
+	
+	deposit() {
+		txnManager.beginTransaction();
+		try {
+			original.withdraw();
+			txnManager.commit();
+		}
+		catch(ex) {
+			txnManager.rollback();
+		}
+		
+	}
+}
+
+```
 
 
 
