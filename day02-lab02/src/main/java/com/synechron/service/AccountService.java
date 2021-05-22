@@ -2,11 +2,14 @@ package com.synechron.service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.synechron.domain.Account;
 import com.synechron.domain.Statement;
+import com.synechron.exception.AccountNotFoundException;
 import com.synechron.repository.AccountRepository;
 import com.synechron.repository.StatementRepository;
 
@@ -25,6 +28,7 @@ public class AccountService {
 		createStatement(accountNumber, amount, type);
 	}
 
+	@Transactional
 	public void withdraw(int accountNumber, int amount, String type) {
 		Account account = getAccount(accountNumber);
 		account.setBalance(account.getBalance() - amount);
@@ -42,7 +46,7 @@ public class AccountService {
 	
 	private Account getAccount(int accountNumber) {
 		Optional<Account> optAccount = accountRepository.findById(accountNumber);
-		Account account = optAccount.orElseThrow(() -> new RuntimeException("Account with " + accountNumber + " does not exist"));
+		Account account = optAccount.orElseThrow(() -> new AccountNotFoundException(accountNumber));
 		return account;
 	}
 
