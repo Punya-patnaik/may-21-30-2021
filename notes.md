@@ -65,7 +65,12 @@ class Account {
 * Spring 5.x; Spring Boot is 2.x(uses Spring 5)
 
 
+#### Spring boot configuration
 
+* Create a class with any name
+* Mark it as __@Configuration__
+* Create methods inside this class that return beans
+* Mark the methods using __@Bean__ annotation
 
 
 
