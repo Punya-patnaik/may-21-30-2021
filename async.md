@@ -73,7 +73,6 @@ public class StockQuoteFinder {
 	}
 ```
 
-* In the **ReceiverApplication** class add *@EnableJms* annotation
 * Add the following method to the class
 * This configuration is actually optional. You can ignore it if you want
 

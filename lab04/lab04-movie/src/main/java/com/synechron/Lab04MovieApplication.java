@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.EnableJms;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableJms
+//@EnableJms
 @Configuration
 public class Lab04MovieApplication {
 
