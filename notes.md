@@ -115,6 +115,35 @@ class Proxy extends AccountService {
 
 ```
 
+#### Packaging and deploying
+
+* -Dkey1=value -Dkey2=value
+* mvn package
+* Spring boot applications are packaged as jar files
+* Service is a self-sufficient, independently running, self deployable unit
+* jar contains embedded tomcat
+* __java -jar -Dserver.port=8082 -Dwelcome="welcome" day03-0.0.1-SNAPSHOT.jar__
+
+* If you want to deploy in a standalone pre-configured server, package the spring boot application as a war file and deploy it
+* This requires tweaking of pom.xml and @Configuration beans in the code
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
