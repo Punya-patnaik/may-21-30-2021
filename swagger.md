@@ -36,7 +36,7 @@ public class AppConfiguration {
 
 ``` 
 
-* Change the __<BASE PACKAGE>__ and __<TITLE>__ values accordingly
+* Change the __BASE PACKAGE__ and __TITLE__ values accordingly
 
 * Run the app and go to http://localhost:8080/swagger-ui.html
 
