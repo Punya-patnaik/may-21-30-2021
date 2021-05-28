@@ -14,8 +14,29 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @RestController
 public class MathController {
+	
+	//Feign
+	@Autowired
+	private MySquareClient squareClient;
+	
+	@GetMapping("/math/squarelarge/{num}")
+	public HttpEntity<Double> getSquareLarge(@PathVariable double num) {
+		//Talk to http://localhost:8081/square/{num}
+		//Fetch the response and return it
+		return squareClient.getLargeNumberSquare(num);
+	}
+	
+	@GetMapping("/math/square/{num}")
+	public HttpEntity<Integer> getSquare(@PathVariable int num) {
+		//Talk to http://localhost:8081/square/{num}
+		//Fetch the response and return it
+		return squareClient.getSquare(num);
+	}
+	
 	
 	
 //	@GetMapping("/operations")
